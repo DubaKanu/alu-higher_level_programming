@@ -1,13 +1,9 @@
 #!/usr/bin/python3
 def add(a, b):
     return a + b
-
-# Example usage:
-result = add(5, 3)
-print(result)  # Output: 8
-
-result = add(-10, 7)
-print(result)  # Output: -3
-
-result = add(0, 100)
-print(result)  # Output: 100
+if _name_ == "_main_":
+    print(add(1, 2))
+    print(add(98, 0))
+    print(add(100, -2))
+    print(add(-100, -2))
+    print(add(0, 0))
