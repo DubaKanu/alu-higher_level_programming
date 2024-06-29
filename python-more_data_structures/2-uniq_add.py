@@ -4,7 +4,7 @@ def uniq_add(my_list=[]):
     Calculates the sum of all unique integers in a list.
 
     Args:
-        my_list: A list of numbers. Defaults to an empty list.
+        my_list: A list of numbers (defaults to an empty list).
 
     Returns:
         The sum of all unique integers in the list.
@@ -19,7 +19,18 @@ def uniq_add(my_list=[]):
                 total += num
     return total
 
-# Example usage
-my_list = [1, 2, 3, 2, 4, 1, 5]
-unique_sum = uniq_add(my_list)
-print(unique_sum)  # Output: 11 (1 + 2 + 3 + 4 + 5)
+# Test cases
+test_cases = [
+    [1, 2, 3],
+    [1, 2, 3, 4],
+    [1, 2, 3, 4, 1],
+    [1, 1, 1, 1, 1],
+    [1, 2, 3, 2, 1, 5],
+    [1, 2, 3, -2, -1, 5],
+    [1],
+    []
+]
+
+for test_list in test_cases:
+  result = uniq_add(test_list)
+  print(f"List: {test_list}, Sum: {result}")
