@@ -1,26 +1,28 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    # Create a new matrix of the same size with squared values
-    new_matrix = [[element ** 2 for element in row] for row in matrix]
-    return new_matrix
+  """
+  Computes the square value of all integers in a matrix and returns a new matrix.
 
-# Test cases
-test_cases = [
-    [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-    [[1, 2], [4, 5]],
-    [[1, 2], [4, 5], [7, 8]],
-    [[1]],
-    [[1], [2], [3], [4]],
-    [[]]
-]
+  Args:
+      matrix: A 2D list representing the matrix. Defaults to an empty list.
 
-for i, matrix in enumerate(test_cases):
-    squared_matrix = square_matrix_simple(matrix)
-    print(f"Test case {i + 1}:")
-    print("Original matrix:")
-    for row in matrix:
-        print(row)
-    print("Squared matrix:")
-    for row in squared_matrix:
-        print(row)
-    print()  # For better readability between test cases
+  Returns:
+      A new 2D list with the squared values of the original matrix.
+      The original matrix remains unmodified.
+  """
+
+  if not matrix:
+    return []  # Handle empty matrix case
+
+  new_matrix = []
+  for row in matrix:
+    new_row = []
+    for element in row:
+      # Check if element is an integer before squaring
+      if isinstance(element, int):
+        new_row.append(element * element)
+      else:
+        # Handle non-integer elements by keeping them unchanged
+        new_row.append(element)
+    new_matrix.append(new_row)
+  return new_matrix
