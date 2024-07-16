@@ -1,7 +1,8 @@
--- 0-my_privileges.sql
+-- Connect to MySQL server
+SELECT VERSION() AS 'mysql_version'; 
 
--- List privileges for user_0d_1
-SHOW GRANTS FOR 'user_0d_1'@'localhost';
+-- Check if user_0d_1 is root (all privileges)
+SHOW GRANTS FOR 'user_0d_1'@'%'; 
 
--- List privileges for user_0d_2
+-- Show grants for user_0d_2 (assuming no root privileges)
 SHOW GRANTS FOR 'user_0d_2'@'localhost';
