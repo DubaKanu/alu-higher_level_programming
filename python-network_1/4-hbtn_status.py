@@ -2,7 +2,7 @@
 import requests
 
 # Fetching the status from the given URL
-response = requests.get('https://alu-intranet.hbtn.io/status')
+response = requests.get('http://0.0.0.0:5050/status')
 
 # Displaying the body of the response
 print("Body response:")
