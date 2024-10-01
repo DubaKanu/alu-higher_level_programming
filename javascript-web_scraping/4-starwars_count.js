@@ -1,23 +1,12 @@
 #!/usr/bin/node
-
 const request = require('request');
-const apiUrl = process.argv[2];
-const characterId = 18;
-
-request(apiUrl, (error, response, body) => {
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  try {
-    const films = JSON.parse(body).results;
-    const count = films.filter(film => 
-      film.characters.some(character => character.includes(`/people/${characterId}/`))
-    ).length;
-    
-    console.log(count);
-  } catch (parseError) {
-    console.error('Error parsing response:', parseError);
+request(process.argv[2], function (err, res, body) {
+  if (!err) {
+    const results = JSON.parse(body).results;
+    console.log(results.reduce((count, film) => {
+      return film.characters.find((character) => character.endsWith('/18/'))
+        ? count + 1
+        : count;
+    }, 0));
   }
 });
