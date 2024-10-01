@@ -9,7 +9,7 @@ request(apiUrl, (error, response, body) => {
     console.error('Error:', error);
     return;
   }
-  
+
   if (response.statusCode !== 200) {
     console.error('Status:', response.statusCode);
     return;
